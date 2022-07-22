@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv=""refresh"" content=""8"" >
+    <link rel="stylesheet" type="text/css" href="C:\style.css">
+    </head>
+    <body>
+
+        <div class="titulo">ALERTA SERVIDORES </div>
+        <div class = "fecha" id = "date"> fecha </div>
+        <div class="tabla">
+            <table style="width:15%; float:left">
+                <tr>
+                    <th>Nombre</th>
+                </tr>
+                <tr>
+                    <td>Shared Folders</td>
+                </tr>
+                <tr>
+                    <td>FTPC Prod Server Core</td>
+                </tr>
+                <tr>
+                    <td>FTPC Prod Server SQL</td>
+                </tr>
+                <tr>
+                    <td>TRESS Server</td>
+                </tr>
+                <tr>
+                    <td>Active Directory</td>
+                </tr>
+                <tr>
+                    <td>Rachio Server</td>
+                </tr>
+                <tr>
+                    <td>HyperV1</td>
+                </tr>
+                <tr>
+                    <td>HyperV2</td>
+                </tr>
+                <tr>
+                    <td>TJ SQL (Circuit CAM)</td>
+                </tr>
+                <tr>
+                    <td>CONTPAQ</td>
+                </tr>
+                <tr>
+                    <td>NAS</td>
+                </tr>
+            </table>
+            <table id="table1" style="width:85%; float:left">
+                <tr>
+                    <th>Servidor</th>
+                    <th>%CPU</th>
+                    <th>Ram Libre</th>
+                    <th>%C: Libre</th>
+                    <th>%D: Libre</th>
+                    <th>%E: Libre</th>
+                    <th>%F: Libre</th>
+                    <th>%G: Libre</th>
+                </tr>
+                <tr>
+                    <td>10.74.82.20</td>
+                    <td></td>
+                    <td>2459</td>
+                    <td></td>
+                    <td></td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>10.74.82.40</td>
+                    <td>100</td>
+                    <td>2459</td>
+                    <td>58</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>10.74.82.42</td>
+                    <td>4</td>
+                    <td>2459</td>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>10.74.82.11</td>
+                    <td>38</td>
+                    <td>2459</td>
+                    <td>90</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                    
+            </table>
+
+            <script>
+
+                    n =  new Date();
+                    y = n.getFullYear();
+                    m = n.getMonth() + 1;
+                    d = n.getDate();
+                    h = n.getHours();
+                    min = n.getMinutes();
+                    sec = n.getSeconds();
+                    document.getElementById("date").innerHTML = m + "/" + d + "/" + y + " " + h + ":" + min + ":" + sec;
+
+                    var tabla = document.getElementById("table1");
+                    var max = tabla.rows.length;
+
+                    var cpu = tabla.rows[0].cells[1];
+                    var clibre = tabla.rows[0].cells[3];
+
+                    for(var i = 0; i < max; i++) {
+                        
+                        cpu = tabla.rows[i].cells[1];
+                        clibre = tabla.rows[i].cells[3];
+                        if (cpu.innerHTML >= 20 && cpu.innerHTML <= 44)
+                        {
+                           cpu.bgColor = "yellow";
+                        }
+                        else if (cpu.innerHTML >= 45 && cpu.innerHTML <= 87)
+                        {
+                            cpu.bgColor = "orange";
+                        }
+                        else if (cpu.innerHTML >= 88 && cpu.innerHTML <= 100)
+                        {
+                            cpu.bgColor = "red";
+                        }
+                        if (clibre.innerHTML <= 10 && clibre.innerHTML >=1)
+                        {
+                           clibre.bgColor = "red";
+                        }
+                        else if (clibre.innerHTML >= 11 && clibre.innerHTML <= 30)
+                        {
+                            clibre.bgColor = "orange";
+                        }
+                    }
+
+                </script>        
+            </div>
+    </body>
+</html>
